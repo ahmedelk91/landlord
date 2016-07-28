@@ -1,1 +1,8 @@
-<h2><%= @apartments.address %></h2>
+<h2><%= @apartments %></h2>
+<p>Address: <%= @apartments %></p>
+<p>Monthly rent: <%= @apartments.monthly_rent %></p>
+<p>Square feet: <%= @apartments.sqft %></p>
+<p>Number of bedrooms: <%= @apartments.num_beds %></p>
+<p>Number of bathrooms: <%= @apartments.num_baths %></p>
+
+<h3><a href='/apartments/<%= @apartments.id %>/edit'>Edit this apartment</a></h3>

@@ -13,9 +13,35 @@ get '/apartments' do
   erb :"apartments/index"
 end
 
+get '/apartments/new' do
+  erb :"apartments/new"
+end
+
 get '/apartments/:id' do
 @aparments = Apartment.find(params[:id])
 erb :"apartments/show"
+end
+
+post '/apartments' do
+  apartments = Apartment.create(params[:apartment])
+  redirect "/apartments/#{apartments.id}"
+end
+
+get '/apartments/:id/edit' do
+  @apartments = Apartment.find(params[:id])
+  erb :"apartments/edit"
+end
+
+put '/apartments:id' do
+  @apartments = Apartment.find(params[:id])
+  @apartments.update(params[:apartment])
+  redirect "/desserts/#{@apartments.id}"
+end
+
+delete '/apartments/:id' do
+  @apartments = Apartment.find(params[:id])
+  @apartments.destroy
+  redirect "/apartments"
 end
 
 get '/' do
